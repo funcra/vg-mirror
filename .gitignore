@@ -11,9 +11,3 @@ Thumbs.db
 *.tmp
 *.log
 test*
-*.csv
-*.json
-*.html
-
-# Keep servers.csv - it's the main data file
-# servers.csv
