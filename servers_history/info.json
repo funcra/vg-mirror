@@ -1,0 +1,19 @@
+{
+  "latest": {
+    "filename": "servers.csv",
+    "url": "https://raw.githubusercontent.com/funcra/vg-mirror/main/servers.csv",
+    "description": "Most recent VPN Gate servers data",
+    "is_latest": true
+  },
+  "historical": [],
+  "total_files": 1,
+  "update_frequency": "Every 2 hours",
+  "timezone": "JST (UTC+9)",
+  "max_history": 10,
+  "generated_at": "2025-09-19T07:03:45.331898",
+  "usage": {
+    "latest_download": "curl -O https://raw.githubusercontent.com/funcra/vg-mirror/main/servers.csv",
+    "historical_download": "curl -O https://raw.githubusercontent.com/funcra/vg-mirror/main/servers_history/servers-YYYYMMDD-HHMM.csv",
+    "note": "Replace YYYYMMDD-HHMM with actual datetime from available files"
+  }
+}
