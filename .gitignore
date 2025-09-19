@@ -1,0 +1,19 @@
+# System files
+.DS_Store
+Thumbs.db
+*~
+
+# IDE files
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.log
+test*
+*.csv
+*.json
+*.html
+
+# Keep servers.csv - it's the main data file
+# servers.csv

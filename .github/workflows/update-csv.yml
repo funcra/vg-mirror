@@ -1,0 +1,53 @@
+name: Update CSV Mirror
+
+on:
+  schedule:
+    - cron: '0 */2 * * *' # Runs every 2 hours at JST (UTC+9)
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download new CSV
+        run: |
+          curl -sS -o servers_new.csv "http://www.vpngate.net/api/iphone/"
+
+      - name: Update CSV with datetime-based history
+        run: |
+          # Create servers directory if it doesn't exist
+          mkdir -p servers_history
+          
+          # Generate datetime string in format YYYYMMDD-HHMM (JST)
+          DATETIME=$(TZ='Asia/Tokyo' date +"%Y%m%d-%H%M")
+          
+          # Move current servers.csv to history with datetime if it exists
+          if [ -f servers.csv ]; then
+            mv servers.csv "servers_history/servers-$DATETIME.csv"
+            echo "Moved current servers.csv to servers_history/servers-$DATETIME.csv"
+          fi
+          
+          # Move new file to servers.csv
+          mv servers_new.csv servers.csv
+          
+          # Clean up old files, keep only the latest 10
+          cd servers_history
+          ls -t servers-*.csv | tail -n +11 | xargs -r rm
+          echo "Cleaned up old files, keeping latest 10 versions"
+          
+          echo "Updated CSV with datetime-based history (servers-$DATETIME.csv)"
+
+      - name: Generate file list API
+        run: |
+          python3 generate_file_list.py
+
+      - name: Commit and push changes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add servers.csv servers_history/
+          git commit -m "Automated update of servers.csv with rolling history"
+          git push
