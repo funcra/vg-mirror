@@ -68,20 +68,13 @@
       "description": "VPN Gate servers data from 2025-09-19 17:43 JST",
       "datetime": "20250919-1743",
       "formatted_datetime": "2025-09-19 17:43 JST"
-    },
-    {
-      "filename": "servers-20250919-1606.csv",
-      "url": "https://raw.githubusercontent.com/funcra/vg-mirror/main/servers_history/servers-20250919-1606.csv",
-      "description": "VPN Gate servers data from 2025-09-19 16:06 JST",
-      "datetime": "20250919-1606",
-      "formatted_datetime": "2025-09-19 16:06 JST"
     }
   ],
-  "total_files": 11,
+  "total_files": 10,
   "update_frequency": "Every 2 hours",
   "timezone": "JST (UTC+9)",
   "max_history": 10,
-  "generated_at": "2025-09-24T06:50:36.012736",
+  "generated_at": "2025-09-24T08:23:30.136435",
   "usage": {
     "latest_download": "curl -O https://raw.githubusercontent.com/funcra/vg-mirror/main/servers.csv",
     "historical_download": "curl -O https://raw.githubusercontent.com/funcra/vg-mirror/main/servers_history/servers-YYYYMMDD-HHMM.csv",
