@@ -33,10 +33,22 @@ jobs:
           # Move new file to servers.csv
           mv servers_new.csv servers.csv
           
-          # Clean up old files, keep only the latest 10
-          cd servers_history
-          ls -t servers-*.csv | tail -n +11 | xargs -r rm
-          echo "Cleaned up old files, keeping latest 10 versions"
+          # Clean up old files, keep only the latest 10 files total (including current servers.csv)
+          # First, count total CSV files (current + historical)
+          TOTAL_FILES=$(find . -name "servers*.csv" | wc -l)
+          echo "Total CSV files found: $TOTAL_FILES"
+          
+          if [ $TOTAL_FILES -gt 10 ]; then
+            # If we have more than 10 files, remove the oldest ones from history
+            cd servers_history
+            FILES_TO_REMOVE=$((TOTAL_FILES - 10))
+            echo "Need to remove $FILES_TO_REMOVE old files"
+            # Sort by filename (which includes datetime) and remove oldest
+            ls servers-*.csv | sort | head -n $FILES_TO_REMOVE | xargs -r rm
+            echo "Cleaned up old files, keeping latest 10 versions total"
+          else
+            echo "No cleanup needed, total files: $TOTAL_FILES"
+          fi
           
           echo "Updated CSV with datetime-based history (servers-$DATETIME.csv)"
 

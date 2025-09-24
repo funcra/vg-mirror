@@ -17,7 +17,7 @@ This repository automatically mirrors the VPN Gate servers CSV file from `http:/
 
 1. The GitHub Actions workflow runs every 2 hours (JST)
 2. Downloads the latest servers.csv from VPN Gate's API
-3. Maintains rolling history of last 10 versions with datetime stamps (servers-YYYYMMDD-HHMM.csv)
+3. Maintains rolling history of latest 10 CSV files total (1 current + 9 historical with datetime stamps)
 4. Always commits new data since VPN Gate returns different data each time
 5. Generates API metadata for easy programmatic access
 6. The workflow can also be triggered manually
@@ -25,7 +25,7 @@ This repository automatically mirrors the VPN Gate servers CSV file from `http:/
 ## Files
 
 - `servers.csv` - The latest VPN Gate servers data (automatically updated)
-- `servers_history/` - Directory containing last 10 versions with datetime stamps
+- `servers_history/` - Directory containing up to 9 historical versions with datetime stamps
 - `servers_history/info.json` - API metadata for all available files
 - `servers_history/index.html` - Web interface for browsing historical data
 - `.github/workflows/update-csv.yml` - GitHub Actions workflow configuration
