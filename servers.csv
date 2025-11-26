@@ -1,1 +1,82 @@
-サービスを利用できません。
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ランタイム エラー</title>
+        <meta name="viewport" content="width=device-width" />
+        <style>
+         body {font-family:"Verdana";font-weight:normal;font-size: .7em;color:black;} 
+         p {font-family:"Verdana";font-weight:normal;color:black;margin-top: -5px}
+         b {font-family:"Verdana";font-weight:bold;color:black;margin-top: -5px}
+         H1 { font-family:"Verdana";font-weight:normal;font-size:18pt;color:red }
+         H2 { font-family:"Verdana";font-weight:normal;font-size:14pt;color:maroon }
+         pre {font-family:"Consolas","Lucida Console",Monospace;font-size:11pt;margin:0;padding:0.5em;line-height:14pt}
+         .marker {font-weight: bold; color: black;text-decoration: none;}
+         .version {color: gray;}
+         .error {margin-bottom: 10px;}
+         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:pointer; }
+         @media screen and (max-width: 639px) {
+          pre { width: 440px; overflow: auto; white-space: pre-wrap; word-wrap: break-word; }
+         }
+         @media screen and (max-width: 479px) {
+          pre { width: 280px; }
+         }
+        </style>
+    </head>
+
+    <body bgcolor="white">
+
+            <span><H1>'/' アプリケーションでサーバー エラーが発生しました。<hr width=100% size=1 color=silver></H1>
+
+            <h2> <i>ランタイム エラー</i> </h2></span>
+
+            <font face="Arial, Helvetica, Geneva, SunSans-Regular, sans-serif ">
+
+            <b> 説明: </b>サーバーでアプリケーション エラーが発生しました。このアプリケーションの現在のカスタム エラー設定では、セキュリティ上の理由により、アプリケーション エラーの詳細をリモート表示できません。ただし、ローカル サーバー コンピューターで実行されているブラウザーで表示することはできます。
+            <br><br>
+
+            <b>詳細:</b> このエラー メッセージの詳細をリモート コンピューターで表示できるようにするには、現在の Web アプリケーションのルート ディレクトリにある &quot;web.config&quot; 構成ファイル内に、&lt;customErrors&gt; タグを作成してください。その後で、この &lt;customErrors&gt; タグで &quot;mode&quot; 属性を &quot;off&quot; に設定してください。<br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+&lt;!-- Web.Config 構成ファイル --&gt;
+
+&lt;configuration&gt;
+    &lt;system.web&gt;
+        &lt;customErrors mode=&quot;Off&quot;/&gt;
+    &lt;/system.web&gt;
+&lt;/configuration&gt;</pre>                      </code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            <b>メモ:</b> 現在表示されているエラー ページをカスタム エラー ページに変更するには、アプリケーションの &lt;customErrors&gt; 構成タグの &quot;defaultRedirect&quot; 属性をカスタム エラー ページ URL に置き換えます。<br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+&lt;!-- Web.Config 構成ファイル --&gt;
+
+&lt;configuration&gt;
+    &lt;system.web&gt;
+        &lt;customErrors mode=&quot;RemoteOnly&quot; defaultRedirect=&quot;mycustompage.htm&quot;/&gt;
+    &lt;/system.web&gt;
+&lt;/configuration&gt;</pre>                      </code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            </font>
+
+    </body>
+</html>
