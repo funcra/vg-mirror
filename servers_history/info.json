@@ -7,6 +7,13 @@
   },
   "historical": [
     {
+      "filename": "servers-20260202-0332.csv",
+      "url": "https://raw.githubusercontent.com/funcra/vg-mirror/main/servers_history/servers-20260202-0332.csv",
+      "description": "VPN Gate servers data from 2026-02-02 03:32 JST",
+      "datetime": "20260202-0332",
+      "formatted_datetime": "2026-02-02 03:32 JST"
+    },
+    {
       "filename": "servers-20260202-0126.csv",
       "url": "https://raw.githubusercontent.com/funcra/vg-mirror/main/servers_history/servers-20260202-0126.csv",
       "description": "VPN Gate servers data from 2026-02-02 01:26 JST",
@@ -61,20 +68,13 @@
       "description": "VPN Gate servers data from 2026-02-01 11:08 JST",
       "datetime": "20260201-1108",
       "formatted_datetime": "2026-02-01 11:08 JST"
-    },
-    {
-      "filename": "servers-20260201-0720.csv",
-      "url": "https://raw.githubusercontent.com/funcra/vg-mirror/main/servers_history/servers-20260201-0720.csv",
-      "description": "VPN Gate servers data from 2026-02-01 07:20 JST",
-      "datetime": "20260201-0720",
-      "formatted_datetime": "2026-02-01 07:20 JST"
     }
   ],
   "total_files": 10,
   "update_frequency": "Every 2 hours",
   "timezone": "JST (UTC+9)",
   "max_history": 10,
-  "generated_at": "2026-02-01T16:26:55.609904",
+  "generated_at": "2026-02-01T18:32:02.461275",
   "usage": {
     "latest_download": "curl -O https://raw.githubusercontent.com/funcra/vg-mirror/main/servers.csv",
     "historical_download": "curl -O https://raw.githubusercontent.com/funcra/vg-mirror/main/servers_history/servers-YYYYMMDD-HHMM.csv",
